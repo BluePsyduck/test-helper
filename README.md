@@ -1,9 +1,9 @@
 # BluePsyduck's Test Helper
 
-[![Latest Stable Version](https://poser.pugx.org/bluepsyduck/test-helper/v/stable)](https://packagist.org/packages/bluepsyduck/test-helper) 
-[![License](https://poser.pugx.org/bluepsyduck/test-helper/license)](https://packagist.org/packages/bluepsyduck/test-helper) 
-[![Build Status](https://travis-ci.com/BluePsyduck/test-helper.svg?branch=master)](https://travis-ci.com/BluePsyduck/test-helper) 
-[![codecov](https://codecov.io/gh/bluepsyduck/test-helper/branch/master/graph/badge.svg)](https://codecov.io/gh/bluepsyduck/test-helper)
+[![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/BluePsyduck/test-helper)](https://github.com/BluePsyduck/test-helper/releases)
+[![GitHub](https://img.shields.io/github/license/BluePsyduck/test-helper)](LICENSE.md)
+[![build](https://img.shields.io/github/workflow/status/BluePsyduck/test-helper/CI?logo=github)](https://github.com/BluePsyduck/test-helper/actions)
+[![Codecov](https://img.shields.io/codecov/c/gh/BluePsyduck/test-helper?logo=codecov)](https://codecov.io/gh/BluePsyduck/test-helper)
 
 This library contains a trait helping with testing classes using PHPUnit by providing some shortcut methods for the 
 test cases.

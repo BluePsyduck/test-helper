@@ -13,12 +13,12 @@ test cases.
 The `ReflectionTrait` is a trait which adds methods for easier access to non-public properties and methods, making
 mocking them easier. The trait comes with the following methods:
 
-* `injectProperty($object, $name, $value)`: Injects the value to a property of the object, or to a static property of a 
-  class.
-* `extractProperty($object, $name)`: Extracts the value of a property from the object, or of a static property of a 
-  class.
-* `invokeMethod($object, $name, ...$params)`: Invokes a non-public method on the object. Note that parameters are 
-  passed as value, so the passed variables will not get modified if the invoked method uses reference parameters.
+* `injectProperty($object, $name, $value)`: Injects the value to a property of the object.
+* `injectStaticProperty($className, $name, $value)`: Injects the value to a static property of the class.
+* `extractProperty($object, $name)`: Extracts the value of a property from the object.
+* `extractStaticProperty($className, $name)`: Extracts the value of a static property from the class.
+* `invokeMethod($object, $name, ...$params)`: Invokes a non-public method on the object.
+* `invokeStaticMethod($className, $name, ...$params)`: Invokes a non-public static method on the class.
   
-Additional note: Instead of actual instances a fully qualified class name can be passed as `$object` for each of the 
-methods to access static member of that class.
+Note: The parameters passed to `invokeMethod()` and `invokeStaticMethod()` are passed-by-value. If the method uses 
+references, the changes made by the method will not be visible to the outside.

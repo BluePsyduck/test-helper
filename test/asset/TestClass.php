@@ -19,11 +19,17 @@ class TestClass
     protected $protectedProperty;
 
     /**
+     * A protected static property.
+     * @var mixed
+     */
+    protected static $protectedStaticProperty;
+
+    /**
      * Sets the protected property.
      * @param mixed $protectedProperty
      * @return $this
      */
-    public function setProtectedProperty($protectedProperty)
+    public function setProtectedProperty($protectedProperty): self
     {
         $this->protectedProperty = $protectedProperty;
         return $this;
@@ -39,6 +45,24 @@ class TestClass
     }
 
     /**
+     * Sets the protected static property.
+     * @param mixed $protectedStaticProperty
+     */
+    public static function setProtectedStaticProperty($protectedStaticProperty): void
+    {
+        self::$protectedStaticProperty = $protectedStaticProperty;
+    }
+
+    /**
+     * Returns the protected static property.
+     * @return mixed
+     */
+    public static function getProtectedStaticProperty()
+    {
+        return self::$protectedStaticProperty;
+    }
+
+    /**
      * A protected method adding two numbers.
      * @param int $a
      * @param int $b
@@ -47,5 +71,16 @@ class TestClass
     protected function protectedMethod(int $a, int $b): int
     {
         return $a + $b;
+    }
+
+    /**
+     * A protected static method multiplying two numbers.
+     * @param int $a
+     * @param int $b
+     * @return int
+     */
+    protected static function protectedStaticMethod(int $a, int $b): int
+    {
+        return $a * $b;
     }
 }

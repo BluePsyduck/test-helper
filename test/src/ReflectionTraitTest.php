@@ -36,6 +36,20 @@ class ReflectionTraitTest extends TestCase
     }
 
     /**
+     * Tests the injectStaticProperty method.
+     * @covers ::injectStaticProperty
+     * @throws ReflectionException
+     */
+    public function testInjectStaticProperty(): void
+    {
+        $value = 42;
+
+        $this->injectStaticProperty(TestClass::class, 'protectedStaticProperty', $value);
+
+        $this->assertSame($value, TestClass::getProtectedStaticProperty());
+    }
+
+    /**
      * Tests the extractProperty method.
      * @covers ::extractProperty
      * @throws ReflectionException
@@ -47,6 +61,21 @@ class ReflectionTraitTest extends TestCase
         $class->setProtectedProperty($value);
 
         $result = $this->extractProperty($class, 'protectedProperty');
+
+        $this->assertSame($value, $result);
+    }
+
+    /**
+     * Tests the extractStaticProperty method.
+     * @throws ReflectionException
+     * @covers ::extractStaticProperty
+     */
+    public function testExtractStaticProperty(): void
+    {
+        $value = 42;
+        TestClass::setProtectedStaticProperty($value);
+
+        $result = $this->extractStaticProperty(TestClass::class, 'protectedStaticProperty');
 
         $this->assertSame($value, $result);
     }
@@ -64,6 +93,22 @@ class ReflectionTraitTest extends TestCase
         $class = new TestClass();
 
         $result = $this->invokeMethod($class, 'protectedMethod', $value1, $value2);
+
+        $this->assertSame($expectedResult, $result);
+    }
+
+    /**
+     * Tests the invokeStaticMethod method.
+     * @throws ReflectionException
+     * @covers ::invokeStaticMethod
+     */
+    public function testInvokeStaticMethod(): void
+    {
+        $value1 = 42;
+        $value2 = 21;
+        $expectedResult = 882;
+
+        $result = $this->invokeStaticMethod(TestClass::class, 'protectedStaticMethod', $value1, $value2);
 
         $this->assertSame($expectedResult, $result);
     }
